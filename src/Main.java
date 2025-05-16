@@ -11,10 +11,28 @@ import com.example.rps.ui.ConsoleOutputHandler;
 import com.example.rps.ui.InputHandler;
 import com.example.rps.ui.OutputHandler;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 // Scanner is not directly needed here as ConsoleInputHandler manages its own.
 
+/**
+ * The main entry point for the Rock-Paper-Scissors game application.
+ * This class sets up the game environment, initializes players,
+ * and starts the game loop.
+ */
 public class Main {
+    private static final Logger LOGGER = Logger.getLogger(Main.class.getName());
+
+    /**
+     * The main method that runs the Rock-Paper-Scissors game.
+     * It initializes all necessary components, prompts the user for the number of rounds,
+     * sets up the players (one human, one computer with random strategy),
+     * creates the game runner, and starts the game.
+     *
+     * @param args Command line arguments (not used by this application).
+     */
     public static void main(String[] args) {
+        LOGGER.log(Level.INFO, "Rock, Paper, Scissors application starting.");
         // 1. Initialize Core Components
         OutputHandler outputHandler = new ConsoleOutputHandler();
         InputHandler inputHandler = new ConsoleInputHandler(); // ConsoleInputHandler creates its own Scanner
@@ -34,6 +52,7 @@ public class Main {
                 outputHandler.displayMessage("Please enter a positive number for rounds.");
             }
         }
+        LOGGER.log(Level.INFO, "Number of rounds chosen: {0}", numberOfRounds);
         outputHandler.displayMessage(""); // For spacing
 
         // 4. Initialize Players
@@ -56,6 +75,7 @@ public class Main {
         // 7. Display Exit Message
         outputHandler.displayMessage("\nThank you for playing! Goodbye.");
         outputHandler.displayMessage("=========================================");
+        LOGGER.log(Level.INFO, "Rock, Paper, Scissors application finished.");
 
         // 8. (Optional but good practice) Close resources
         // If ConsoleInputHandler or other components used resources that need explicit closing,

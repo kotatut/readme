@@ -206,3 +206,43 @@ Design the system with the following potential extensions in mind:
 * **Setup and Usage Instructions**: Include brief instructions on how to compile and run the game.
 
 By following these guidelines, the generated Java application will be a robust, well-engineered solution that effectively demonstrates senior-level backend development skills.
+
+## Setup and Usage Instructions
+
+### 1. Prerequisites
+
+*   **Java Development Kit (JDK)**: Version 17 or higher is required. The codebase utilizes features introduced in Java 17 (such as records, enhanced switch expressions, etc., if applicable to the final implementation style).
+
+### 2. Directory Structure Overview
+
+*   `src/`: Contains all the Java source files, organized by package (e.g., `com.example.rps.game`, `com.example.rps.model`).
+*   `test/`: Contains all the JUnit test files, mirroring the source package structure.
+*   `out/`: This directory will be created during compilation to store the compiled `.class` files.
+
+### 3. Compilation
+
+To compile the application, navigate to the root directory of the project in your terminal and use the `javac` compiler.
+
+```bash
+# Navigate to the root of the project (where src and test directories are located)
+# Create an 'out' directory if it doesn't exist for compiled classes
+mkdir -p out
+
+# Compile all .java files from the src directory into the out directory
+javac -d out --source-path src $(find src -name '*.java')
+```
+This command finds all `.java` files under the `src` directory, specifies `src` as the source path for package resolution, and places the compiled `.class` files into the `out` directory.
+
+*(Note: Running tests, especially those using JUnit, typically requires JUnit libraries on the classpath and a test runner. For simplicity, these instructions focus on compiling and running the main application. Full testing setup would usually involve a build tool like Maven or Gradle.)*
+
+### 4. Running the Application
+
+After successful compilation, you can run the application from the root directory using the `java` command.
+
+```bash
+# Navigate to the root of the project
+java -cp out com.example.rps.Main
+```
+This command tells Java to look for compiled classes in the `out` directory (`-cp out`) and then specifies the main class to execute (`com.example.rps.Main`).
+
+Upon running, the game will start in the console, and you will be prompted to enter the number of rounds and then your moves for each round.
