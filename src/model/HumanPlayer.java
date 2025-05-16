@@ -41,7 +41,10 @@ public class HumanPlayer implements Player {
     public Move getMove() {
         Optional<Move> move = Optional.empty();
         while (!move.isPresent()) {
-            outputHandler.displayMessage(name + ", enter your move (Rock, Paper, Scissors): ");
+            String prompt = name + ", enter your move (Rock[R] " + Move.ROCK.getEmoji() +
+                            ", Paper[P] " + Move.PAPER.getEmoji() +
+                            ", Scissors[S] " + Move.SCISSORS.getEmoji() + "): ";
+            outputHandler.displayMessage(prompt);
             String input = inputHandler.readUserInput();
             move = Move.fromString(input);
             if (!move.isPresent()) {

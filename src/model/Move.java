@@ -4,14 +4,34 @@ import java.util.Optional;
 
 /**
  * Represents the possible moves in a Rock-Paper-Scissors game: ROCK, PAPER, SCISSORS.
+ * Each move also has an associated emoji representation.
  */
 public enum Move {
-    /** Represents the Rock move. */
-    ROCK,
-    /** Represents the Paper move. */
-    PAPER,
-    /** Represents the Scissors move. */
-    SCISSORS;
+    /** Represents the Rock move. Emoji: ✊ */
+    ROCK("✊"),
+    /** Represents the Paper move. Emoji: ✋ */
+    PAPER("✋"),
+    /** Represents the Scissors move. Emoji: ✌️ */
+    SCISSORS("✌️");
+
+    private final String emoji;
+
+    /**
+     * Constructs a Move enum constant with its emoji representation.
+     * @param emoji The Unicode emoji string for this move.
+     */
+    Move(String emoji) {
+        this.emoji = emoji;
+    }
+
+    /**
+     * Gets the emoji representation of this move.
+     *
+     * @return The Unicode emoji string for this move.
+     */
+    public String getEmoji() {
+        return emoji;
+    }
 
     /**
      * Parses a string to a {@link Move} enum value, case-insensitive.

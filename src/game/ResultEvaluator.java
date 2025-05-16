@@ -28,15 +28,15 @@ public class ResultEvaluator {
 
         if (player1Move == player2Move) {
             return new Result(player1Move, player2Move, Result.Outcome.TIE,
-                    String.format("It's a Tie! Both %s and %s chose %s.", player1Name, player2Name, player1Move));
+                    String.format("It's a Tie! Both %s and %s chose %s.", player1Name, player2Name, player1Move.getEmoji()));
         } else if (player1Move.beats(player2Move)) {
             // Player 1 wins
             return new Result(player1Move, player2Move, Result.Outcome.PLAYER1_WIN,
-                    String.format("%s wins! %s %s %s.", player1Name, player1Move, moveAction(player1Move, player2Move), player2Move));
+                    String.format("%s wins! %s %s %s.", player1Name, player1Move.getEmoji(), moveAction(player1Move, player2Move), player2Move.getEmoji()));
         } else {
             // Player 2 wins
             return new Result(player1Move, player2Move, Result.Outcome.PLAYER2_WIN,
-                    String.format("%s wins! %s %s %s.", player2Name, player2Move, moveAction(player2Move, player1Move), player1Move));
+                    String.format("%s wins! %s %s %s.", player2Name, player2Move.getEmoji(), moveAction(player2Move, player1Move), player1Move.getEmoji()));
         }
     }
 

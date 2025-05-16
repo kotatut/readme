@@ -62,10 +62,10 @@ public class GameRunner {
             // Get moves
             var player1Move = player1.getMove();
             LOGGER.log(Level.FINE, "Player {0} chose: {1}", new Object[]{player1.getName(), player1Move});
-            outputHandler.displayMessage(player1.getName() + " chose: " + player1Move);
+            outputHandler.displayMessage(player1.getName() + " chose: " + player1Move.getEmoji());
             var player2Move = player2.getMove();
             LOGGER.log(Level.FINE, "Player {0} chose: {1}", new Object[]{player2.getName(), player2Move});
-            outputHandler.displayMessage(player2.getName() + " chose: " + player2Move);
+            outputHandler.displayMessage(player2.getName() + " chose: " + player2Move.getEmoji());
 
             // Evaluate result
             Result roundResult = resultEvaluator.evaluate(player1Move, player2Move, player1.getName(), player2.getName());
